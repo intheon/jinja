@@ -72,12 +72,14 @@ __all__ = [
 ]
 
 
-def _patch_async():
-    from jinja2.utils import have_async_gen
-    if have_async_gen:
-        from jinja2.asyncsupport import patch_all
-        patch_all()
-
-
-_patch_async()
-del _patch_async
+# cko: needed to remove because this code currently relies on bytecode
+#      introspection and doesn't work with our hardened interpreter
+# def _patch_async():
+#     from jinja2.utils import have_async_gen
+#     if have_async_gen:
+#         from jinja2.asyncsupport import patch_all
+#         patch_all()
+#
+#
+# _patch_async()
+# del _patch_async
